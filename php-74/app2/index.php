@@ -80,7 +80,7 @@ if ($action == "view") {
 
         if (($_FILES["file"]["size"] < 100000)) {
 
-          if (in_array($_FILES["file"]["type"], $allowedType)) {
+          if (preg_match($_FILES["file"]["name"],'^[^\s]+\.(jpe?g|png|gif)$')) {
 
             $aff .= "File information&nbsp;:<br><ul>";
             if ($_FILES["file"]["error"] > 0)  {
